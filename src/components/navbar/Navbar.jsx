@@ -39,16 +39,16 @@ const links=[
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <Link href="/">Aditya</Link>
-      <div>
-{      links.map(link=>{
+      <Link href="/" className={styles.logo}>Aditya</Link>
+      <div className={styles.links}>
+{      links.map(link=>
         
-        return(
-          <Link key={link.id}href={link.url}>{link.title}</Link>
+       (
+          <Link key={link.id}href={link.url} className={styles.link}>{link.title}</Link>
           )
-        })
+        )
 }  
-    <button onClick={()=>{console.log("logged out")}}>Logout</button>
+    <button className={styles.logout} onClick={()=>{console.log("logged out")}}>Logout</button>
     </div>
     </div>
   )
