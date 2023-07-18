@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.title{
+    font-size: 72px;
+    background: linear-gradient(to bottom,rgb(92, 143, 206),#bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.desc{
+    font-size: 24px;
+    font-weight: 300;
+}
+.button{
+    padding: 20px;
+    cursor: pointer;
+    background-color:  rgb(24, 60, 104);
+    border: none;
+    border-radius: 5px;
+    color: #bbb;
+    width: max-content;
+}
