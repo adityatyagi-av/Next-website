@@ -19,18 +19,18 @@
 .img{
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
+    animation: move 3s infinite ease alternate;
+}
+@keyframes move{
+    from{
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(10px) ;
+    }
 }
 .desc{
     font-size: 24px;
     font-weight: 300;
-}
-.button{
-    padding: 20px;
-    cursor: pointer;
-    background-color:  rgb(24, 60, 104);
-    border: none;
-    border-radius: 5px;
-    color: #bbb;
-    width: max-content;
 }
