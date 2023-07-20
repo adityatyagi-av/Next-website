@@ -1,16 +1,32 @@
 import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
+import {notFound} from 'next/navigation'
 
-const Id = () => {
+async function getData(id) { 
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+    cache: "no-store"
+  })
+ 
+  if (!res.ok) {
+   return notFound()
+  }
+ 
+  return res.json()
+}
+
+
+const Id = async ({params}) => {
+  
+  const data= await getData(params.id)
+  console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, excepturi!</h1>
+          <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.desc}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae dolor culpa iure reiciendis dolore odit blanditiis laboriosam voluptatum aut quos ipsum pariatur saepe praesentium nesciunt, dolorum, minus eius eaque nobis, assumenda dolores laudantium vitae. Tempore ratione error fugit maiores blanditiis.
-          </p>
+{data.body}          </p>
           <div className={styles.author}>
             <Image src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=600" alt="author image"
             width={40}
