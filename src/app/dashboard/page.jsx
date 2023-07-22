@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
+import { useSession } from 'next-auth/react';
 
 
 
@@ -24,7 +25,9 @@ const Dashboard = () => {
     getData()
   },[]);
 
-  console.log(data)
+  const session=useSession()
+
+  console.log(session)
   return (
 
     <div className={styles.container}>
